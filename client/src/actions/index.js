@@ -67,6 +67,12 @@ export function addBook(book){
 	}
 }
 
+export function clearNewBook() {
+	return {
+		type: 'CLEAR_NEWBOOK',
+		payload:{}
+	}
+}
 
 
 // USER ACTIONS
