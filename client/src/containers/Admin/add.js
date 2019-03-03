@@ -53,7 +53,7 @@ class AddBook extends Component {
 
 	render() {
 		return (
-			<div className="rl_container_article">
+			<div className="rl_container article">
 				<form onSubmit={this.submitForm}>
 					<h2>Add a review</h2>
 
