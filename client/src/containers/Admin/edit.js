@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { addBook, clearNewBook } from '../../actions';
+import { getBook, updateBook, clearBook, deletePost } from '../../actions';
 
 
 class EditBook extends PureComponent {
@@ -31,7 +31,26 @@ class EditBook extends PureComponent {
 
 	submitForm = (e) => {
 		e.preventDefault();
+		this.props.dispatch(updateBook(this.state.formdata))
+	}
 
+	componentWillMount(){
+		this.props.dispatch(getBook(this.props.match.params.id))
+	}
+
+	componentWillReceiveProps(nextProps){
+		let book = nextProps.books.book;
+		this.setState({
+			formdata:{
+				_id:book._id,
+				name:book.name,
+				author:book.author,
+				review:book.review,
+				pages:book.pages,
+				rating:book.rating,
+				price:book.price
+			}
+		})
 	}
 
 	render() {
