@@ -32,11 +32,20 @@ class Register extends Component {
 	}
 
 	componentWillReceiveProps(nextProps){
-
+		if(nextProps.user.register === false){
+			this.setState({error:'Error,try again'})
+		} else{
+			this.setState({
+				name:'',
+				lastname:'',
+				email:'',
+				password:''
+			})
+		}
 	}
 
 
-	
+
 
 	submitForm = (e) => {
 		e.preventDefault();
