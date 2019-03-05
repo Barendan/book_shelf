@@ -6,6 +6,8 @@
 			return {...state,login:action.payload}
 		case 'GET_USER_POSTS':
 			return {...state,userPosts:action.payload}
+		case 'GET_USERS':
+			return {...state,users:action.payload}
 		default:
 			return state;
 	}

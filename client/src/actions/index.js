@@ -102,6 +102,25 @@ export function updateBook(data){
 	}
 }
 
+export function deleteBook(id){
+	const request = axios.delete(`/api/delete_book?id=${id}`)
+				.then(response => response.data)
+	return {
+		type: 'DELETE_BOOK',
+		payload:request
+	}
+}
+
+export function clearBook(){
+	return{
+		type:'CLEAR_BOOK',
+		payload:{
+			book:null,
+			updateBook:false,
+			postDeleted:false
+		}
+	}
+}
 
 // USER ACTIONS
 
@@ -127,5 +146,12 @@ export function auth(){
 	}
 }
 
-
+export function getUsers(){
+	const request = axios.get(`/api/users`)
+				.then(response => response.data);
+	return {
+		type:'GET_USER',
+		payload:request
+	}
+}
 
