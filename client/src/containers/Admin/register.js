@@ -4,6 +4,7 @@ import { getUsers, userRegister } from '../../actions';
 
 
 class Register extends Component {
+	
 	state = {
 		name:'',
 		lastname:'',
